@@ -1,0 +1,9 @@
+.container {
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+
+}
+.form-control {
+    display: block;
+    width: 20px;
+}
