@@ -49,7 +49,7 @@
 </nav>
 
 <!-- Header - set the background image for the header in the line below -->
-<header class="py-5 bg-image-full" style="background-image: url('https://dan-expo.pl/wp-content/uploads/photo-gallery/ARLEKINO_1.jpg');">
+<header class="py-5 bg-image-full" style="background-image: url('/resources/img/ARLEKINO_1.jpg');">
 </header>
 
 <!-- Content section -->
@@ -61,7 +61,7 @@
     </div>
 </section>
 
-<section class="py-5 bg-image-full" style="background-image: url('https://dan-expo.pl/wp-content/uploads/photo-gallery/B/III_FormPlastic_Ambiente2015_w2009.jpg');">
+<section class="py-5 bg-image-full" style="background-image: url('/resources/img/III_FormPlastic_Ambiente2015_w2009.jpg');">
     <div style="height: 200px;"></div>
 </section>
 

@@ -29,6 +29,12 @@ public class UserService {
     public User findByEmail(String email){
         return userRepository.findByEmail(email);
     }
+    public List<User> findAllByNip(String nip){
+        return userRepository.findAllByNip(nip);
+    }
+    public List<User> findAllByEmail(String email){
+        return userRepository.findAllByEmail(email);
+    }
 
     // znajdz po id
 
@@ -58,5 +64,6 @@ public class UserService {
     public List<User> getUsersList(){
         return userRepository.findAll();
     }
+
 
 }

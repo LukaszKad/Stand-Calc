@@ -61,19 +61,16 @@ public class StandCartController {
     @RequestMapping("/advanced/stand")
     public String standCart(Model model) {
         model.addAttribute("standCartService", standCartService.getStandItems());
-        int items = standCartService.getStandItems().size();
-        int numbofElements = 0;
-        double total = 0;
+        int numberOfElements = standCartService.getStandItems().size();
+        double totalSum = 0;
 
         for (int i = 0; i < standCartService.getStandItems().size() ; i++) {
             int q = standCartService.getStandItems().get(i).getQuantity();
-            double tot = standCartService.getStandItems().get(i).getStandElements().getPrice() * q ;
-            numbofElements += q;
-            total += tot;
+            double total = standCartService.getStandItems().get(i).getStandElements().getPrice() * q ;
+            totalSum += total;
         }
-        model.addAttribute("items", items);
-        model.addAttribute("numbofElements", numbofElements);
-        model.addAttribute("total", total);
+        model.addAttribute("numberOfElements", numberOfElements);
+        model.addAttribute("totalSum", totalSum);
         return "stand";
     }
 

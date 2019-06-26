@@ -7,24 +7,20 @@
 
 <div class="container">
     <h1>Użytkownicy</h1>
+    <br>
+    <h4>Wyszukiwarka:</h4>
+    <form:form class="form-inline" action="/admin/menu/user"  autocomplete="off">
+        <label class="sr-only" for="email">Email</label>
+        <input type="text" value="${email}" class="form-control mb-2 mr-sm-2" id="email" name="email" placeholder="Wpisz E-mail">
 
-    <form class="form-inline" action="/admin/menu" autocomplete="off">
-        <label class="sr-only" for="keyword">Keyword</label>
-        <input type="text" value="${param.keyword}" class="form-control mb-2 mr-sm-2" id="keyword" name="keyword" placeholder="Keyword">
+        <label class="sr-only" for="nip">Nip</label>
+        <input type="text" value="${nip}" class="form-control mb-2 mr-sm-2" id="nip" name="nip" placeholder="Wpisz NIP">
 
-        <label class="sr-only" for="category">Category</label>
-        <select class="form-control mb-2 mr-sm-2" id="category" name="category">
-            <option value="">Category</option>
-            <c:forEach items="${ categories }" var="cat">
-                <option <c:if test="${ cat eq param.category }">selected</c:if>>${ cat }</option>
-            </c:forEach>
-        </select>
-
-        <button type="submit">Search</button>
-        <c:if test="${not empty param.keyword or not empty param.category}">
-            <a href="/admin/menu">Clear</a>
+        <button type="submit">Szukaj</button>
+        <c:if test="${not empty param.email or not empty param.nip}">
+            <a href="/admin/menu/user">Wyczyść</a>
         </c:if>
-    </form>
+    </form:form>
 
     <table class="table table-striped" style="text-align: center">
         <thead class="thead-dark">
@@ -55,6 +51,7 @@
                 <td>
                     <a href="/admin/user/update/${user.id}" class="btn btn-outline-dark btn-sm">Edycja danych</a>
                     <a href="#" onclick= "confirmDeleteUser(${user.id}, '${user.username}')" class="btn btn-outline-dark btn-sm">Usuń</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

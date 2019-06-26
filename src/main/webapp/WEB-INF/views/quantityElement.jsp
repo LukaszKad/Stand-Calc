@@ -25,7 +25,7 @@
                 ${standElement.type}
             </td>
             <td>
-                <button type="submit" class="btn btn-dark">Zapisz</button>
+                <button type="submit" class="btn btn-dark">Dodaj</button>
             </td>
         </tr>
     </form:form>

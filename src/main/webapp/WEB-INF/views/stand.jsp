@@ -32,10 +32,10 @@
             </table>
 
             <div>
-                Ilość elementów stoiska: <strong> ${items} </strong>
+                Ilość elementów stoiska: <strong> ${numberOfElements} </strong>
                 <br>
                 Wycena projektu:
-                <span><h3><strong>${total} zł</strong></h3></span>
+                <span><h3><strong>${totalSum} zł</strong></h3></span>
             </div>
         </div>
     </div>

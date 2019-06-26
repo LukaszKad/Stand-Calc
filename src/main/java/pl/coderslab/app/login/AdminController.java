@@ -113,4 +113,35 @@ public class AdminController {
         userService.deleteUser(id);
         return "redirect:../list";
     }
+
+    // Wyszukiwanie elementów
+
+    @RequestMapping("/admin/menu")
+    public String searchElements(@ModelAttribute @RequestParam(value = "keyword", required = false) String keyword,
+                                 @RequestParam(value = "type", required = false) String type,
+                                 Model model, HttpSession session) {
+        if (keyword != null && !keyword.isEmpty()) {
+            model.addAttribute("standElements", standElementsService.findByElementLikeRegex(keyword));
+        } else if (type != null && !type.isEmpty()) {
+            model.addAttribute("standElements", standElementsService.findByType(type));
+        } else {
+            model.addAttribute("standElements", standElementsService.getAllStandElements());
+        }
+        model.addAttribute("types", standElementsService.findAllByType());
+        return "elementsList";
+    }
+
+    @RequestMapping("/admin/menu/user")
+    public String searchUserByDetails(@ModelAttribute @RequestParam(value = "email", required = false) String email,
+                                 @RequestParam(value = "nip", required = false) String nip,
+                                 Model model, HttpSession session) {
+        if (email != null && !email.isEmpty()) {
+            model.addAttribute("users", userService.findAllByEmail(email));
+        } else if (nip != null && !nip.isEmpty()) {
+            model.addAttribute("users", userService.findAllByNip(nip));
+        } else {
+            model.addAttribute("users", userService.getUsersList());
+        }
+        return "usersList";
+    }
 }

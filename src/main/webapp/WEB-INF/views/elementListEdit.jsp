@@ -21,7 +21,7 @@
             <select path="type" id="type" name="type">
                 <option value="${standElement.type}">--${standElement.type}--</option>
                 <option value="sztuki">sztuki</option>
-                <option value="mkw.">mkv.</option>
+                <option value="mkw.">mkw.</option>
                 <option value="metry">metry</option>
             </select>
         </div>

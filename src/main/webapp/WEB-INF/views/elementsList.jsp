@@ -1,32 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <%@ include file="patterns/header.jsp"%>
 
 <div class="container">
     <h1>Elementy stoiska</h1>
-
-    <form class="form-inline" action="/admin/menu" autocomplete="off">
+    <br>
+    <h4>Wyszukiwarka:</h4>
+    <form:form class="form-inline" action="/admin/menu"  autocomplete="off">
         <label class="sr-only" for="keyword">Keyword</label>
-        <input type="text" value="${param.keyword}" class="form-control mb-2 mr-sm-2" id="keyword" name="keyword" placeholder="Keyword">
+        <input type="text" value="${keyword}" class="form-control mb-2 mr-sm-2" id="keyword" name="keyword" placeholder="Nazwa elementu">
 
-        <label class="sr-only" for="category">Category</label>
-        <select class="form-control mb-2 mr-sm-2" id="category" name="category">
-            <option value="">Category</option>
-            <c:forEach items="${ categories }" var="cat">
-                <option <c:if test="${ cat eq param.category }">selected</c:if>>${ cat }</option>
+        <label class="sr-only" for="type">Jednostka</label>
+        <select class="form-control mb-2 mr-sm-2" id="type" name="type">
+            <option value="${types}">Jednostka</option>
+            <c:forEach items="${types}" var="types">
+                <option <c:if test="${types eq type}">selected</c:if>>${types}</option>
             </c:forEach>
         </select>
 
-        <button type="submit">Search</button>
-        <c:if test="${not empty param.keyword or not empty param.category}">
-            <a href="/admin/menu">Clear</a>
+        <button type="submit">Szukaj</button>
+        <c:if test="${not empty param.keyword or not empty param.type}">
+            <a href="/admin/menu">Wyczyść</a>
         </c:if>
-    </form>
+    </form:form>
 
     <table class="table table-bordered">
-        <thead class="thead-dark" style="background-color:wheat">
+        <thead class="thead-dark">
         <tr>
             <th>Id elementu</th>
             <th>Nazwa Elementu</th>

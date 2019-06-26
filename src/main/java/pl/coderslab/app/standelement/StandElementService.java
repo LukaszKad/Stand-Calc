@@ -15,8 +15,6 @@ public class StandElementService {
         this.standElementsRepository = standElementsRepository;
     }
 
-    // znajdz po id to moje getProduct
-
     public StandElement getStandElementById(Long id) {
         return standElementsRepository.findById(id).orElse(null);
     }
@@ -28,8 +26,6 @@ public class StandElementService {
     public StandElement findStandElementById(Long id){
         return standElementsRepository.findById(id).orElse(null);
     }
-
-    // Znajdowanie listy elementów to moje getList
 
     public List<StandElement> getAllStandElements(){
         return standElementsRepository.findAll();
@@ -53,19 +49,16 @@ public class StandElementService {
         standElementsRepository.deleteById(id);
     }
 
-    //
-
-    public void deleteStandElementBy(Long id){
-        StandElement standElements = standElementsRepository.findFirstById(id);
-        standElementsRepository.delete(standElements);
+    public List<StandElement> findByType(String type){
+        return standElementsRepository.findByType(type);
     }
 
-    // Znajduje jeden element z listy standelement elements
-
-    public StandElement getOneElement(Long id){
-        return getAllStandElements().stream().filter(p -> p.getId().equals(id)).findFirst().orElse(null);
+    public List<StandElement> findByElementLikeRegex(String regex){
+        return standElementsRepository.findByElementLikeRegex(regex.toLowerCase());
     }
 
-
+    public List<StandElement> findAllByType(){
+        return standElementsRepository.findAllByType();
+    }
 }
 
