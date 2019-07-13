@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.coderslab.app.standcart.StandCart;
 import pl.coderslab.app.user.User;
 import pl.coderslab.app.user.UserService;
 
@@ -41,6 +42,8 @@ public class RegistrationController {
         if (result.hasErrors()) {
             return "userAdd";
         } else {
+//            StandCart standCart = new StandCart();
+//            user.setStandCart(standCart);
             userService.saveUser(user);
         }
         return "login";

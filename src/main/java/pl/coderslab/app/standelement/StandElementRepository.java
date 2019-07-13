@@ -19,4 +19,7 @@ public interface StandElementRepository extends JpaRepository<StandElement, Long
 
     @Query("SELECT DISTINCT type FROM StandElement")
     List<StandElement> findAllByType();
+
+    @Query("SELECT e FROM StandElement e WHERE e.element = :element")
+    StandElement findByElement(String element);
 }

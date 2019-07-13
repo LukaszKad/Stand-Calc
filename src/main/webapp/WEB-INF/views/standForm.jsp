@@ -16,10 +16,11 @@
     </tr>
     </thead>
     <form:form method="get" modelAttribute="standElements">
-        <c:forEach var="stand" items="${standElements}">
+        <c:forEach var="stand" items="${standElements}" varStatus="counter">
             <tr>
                 <td>
-                    <input name="id" type="hidden" value="${stand.id}"> ${stand.id}
+                    <input name="id" type="hidden" value="${stand.id}">
+                    <c:out value="${counter.count}"/>
                 </td>
                 <td>${stand.element}</td>
                 <td>${stand.description}</td>

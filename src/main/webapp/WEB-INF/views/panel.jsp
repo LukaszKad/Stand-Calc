@@ -19,9 +19,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="stand" items="${standCartService}">
+                <c:forEach var="stand" items="${standCartService}" varStatus="counter">
                     <tr>
-                        <td>${stand.id}</td>
+                        <td><c:out value="${counter.count}"/></td>
                         <td>${stand.date}</td>
                         <td><strong>${stand.totalSum} zł</strong></td>
                         <td><a href="/user/panel/details/${stand.id}" class="btn btn-dark btn-sm">Szczegóły</a></td>

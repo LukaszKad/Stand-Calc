@@ -18,17 +18,15 @@
                     <th scope="col">Action</th>
                 </tr>
                 </thead>
-                <tbody>
-                <c:forEach var="element" items="${standCartService}">
+                <c:forEach var="element" items="${standCartService}" varStatus="counter">
                     <tr>
-                        <td>${element.standElements.id}</td>
+                        <td><c:out value="${counter.count}"/></td>
                         <td>${element.standElements.element}</td>
                         <td>${element.quantity}</td>
                         <td>${element.standElements.type}</td>
                         <td><a href="/user/advanced/stand/delete/${element.standElements.id}" class="btn btn-dark btn-sm">Usuń</a></td>
                     </tr>
                 </c:forEach>
-                </tbody>
             </table>
 
             <div>

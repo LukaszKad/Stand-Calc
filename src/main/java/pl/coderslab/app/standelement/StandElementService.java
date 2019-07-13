@@ -60,5 +60,9 @@ public class StandElementService {
     public List<StandElement> findAllByType(){
         return standElementsRepository.findAllByType();
     }
+
+    public StandElement findByElement(String element){
+        return standElementsRepository.findByElement(element.toLowerCase());
+    }
 }
 
